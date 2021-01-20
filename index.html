@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" type="text/css" href="http://www.douchaoyang.com/public/reset.pc.css">
+	<link rel="stylesheet" type="text/css" href="lottery.css">
+	<title>lottery</title>
+</head>
+<body>
+	<div id="lottery">
+		<table cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="lottery-unit lottery-unit-1"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/136932/8/10288/53336/5f647841E83f8248a/865fdf5d5f514106.jpg" /></td>
+				<td class="lottery-unit lottery-unit-2"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/158700/4/4236/556438/60079b94E63da7ff4/dee2d2f91b76349c.png" /></td>
+				<td class="lottery-unit lottery-unit-3"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/143710/11/2661/364708/5f08148eEb30ec544/96e152cb4f7af6ea.jpg" /></td>
+			</tr>
+			<tr>
+				<td class="lottery-unit lottery-unit-8"><img  width="95px" height="95px" src="https://img.alicdn.com/imgextra/https://img.alicdn.com/imgextra/i2/2874613469/O1CN01NaWf3I1bUqVeWpAQF_!!2874613469.jpg_430x430q90.jpg" /></td>
+				<td><a href="javascript:;" id="begin">开始</a></td>
+				<td class="lottery-unit lottery-unit-4"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/11118/17/3830/135831/5c2309a8E1b25c05d/b211b3a0ec642d21.jpg" /></td>
+			</tr>
+			<tr>
+				<td class="lottery-unit lottery-unit-7"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/134286/34/2038/93898/5ee347f4Eb7c7bc55/2f0e49b43f0dca81.jpg" /></td>
+				<td class="lottery-unit lottery-unit-6"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/68316/26/13088/263443/5da51cd7Ed3b161dc/279d512d37898d3a.jpg"</td>
+				<td class="lottery-unit lottery-unit-5"><img  width="95px" height="95px" src="https://img14.360buyimg.com/n0/jfs/t1/77897/9/231/33950/5ce66286E91886d20/18e1573e11a1cfd3.jpg"</td>
+			</tr>
+		</table>
+	</div>
+	<script type="text/javascript" src="http://www.douchaoyang.com/public/core.lib.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	(function($){
+		$.loadScript("plug.lottery.js",function(){
+			var ward=[
+				"一等奖 转运珠",
+				"二等奖 迷你加湿器",
+				"二等奖 可擦写笔记本",
+				"三等奖 书签",
+				"三等奖 无小叶风扇",
+				"三等奖 衣柜香薰蜡片",
+				"三等奖 记忆棉靠垫",
+				"三等奖 减压比心猪"
+				];
+			var lottery=new Lottery({
+				loop:3+$.randomInt(8),
+				speed:45
+			});
+			g("begin").onclick=function(){
+
+			var n=$.randomInt(15);  //一等奖 1/16  二等奖 5/16 三等奖 10/16
+				n = 15;
+				if(n>0&&n<=2){
+				  n = 1;
+				}
+				if(n>=3&&n<=5){
+				  n = 2;
+				}
+				if(n>5){
+				  n = Math.floor(n/2);
+				}		
+				lottery.run(n+1,function(){
+					alert("恭喜您中了"+ward[n]+"！)
+				});
+			}
+		});
+	})(core);
+	</script>
+</body>
+</html>
